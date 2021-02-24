@@ -1,7 +1,6 @@
-const apiId = config.SECRET_API_KEY;
 
 // function to get data for the city input 
-const getDataForCity = (city, unit) => fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiId}&units=${unit}`)
+const getDataForCity = (city, unit) => fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${config.SECRET_API_KEY}&units=${unit}`)
     .then(response => response.json());
 
   
