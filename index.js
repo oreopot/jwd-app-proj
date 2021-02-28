@@ -1,7 +1,11 @@
-const apiId = config.SECRET_API_KEY;
+//const apiId = '268f5aed1b7020c4e6301edb71649a86';
+require('dotenv').config()
+const apiId = process.env.API_KEY;
+
+console.log(apiId);
 
 // function to get data for the city input 
-const getDataForCity = (city, unit) => fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiId}&units=${unit}`)
+const getDataForCity = (city, unit, apiId) => fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiId}&units=${unit}`)
     .then(response => response.json());
 
   
@@ -54,6 +58,7 @@ const status = {
 const submit = document.querySelector('#go-button');
 const cityInput = document.querySelector('#city-input');
 const unitInput = document.querySelector('#unit');
+// const keyInput = document.querySelector('#key-input');
 const weatherContainer = document.querySelector('#weather-container');
 
 // event listener for a click event on the "Go!" button
@@ -61,9 +66,10 @@ submit.addEventListener('click', () => {
     // get the city from the input field
     const city = cityInput.value;
     const unit = unitInput.value;
+    // const key = keyInput.value;
 
     // get the weather data for the city
-    getDataForCity(city, unit)
+    getDataForCity(city, unit, key)
       .then(data => {
         // get the data we need for our html from the response
         const name = data.name;
@@ -79,4 +85,3 @@ submit.addEventListener('click', () => {
         weatherContainer.innerHTML = cardHtml;
       });
   });
- 

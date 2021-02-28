@@ -1,0 +1,25 @@
+{
+  "name": "weather_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "dev": "node -r dotenv/config ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spurtik/jwd-app-proj.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spurtik/jwd-app-proj/issues"
+  },
+  "homepage": "https://github.com/spurtik/jwd-app-proj#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "dotenv-webpack": "^6.0.2",
+    "express": "^4.17.1"
+  }
+}
