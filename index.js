@@ -1,17 +1,17 @@
 //const apiId = '268f5aed1b7020c4e6301edb71649a86';
-require('dotenv').config()
+require("dotenv").config();
 const apiId = process.env.API_KEY;
 
-console.log(apiId);
+// console.log(apiId);
 
-// function to get data for the city input 
-const getDataForCity = (city, unit, apiId) => fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiId}&units=${unit}`)
-    .then(response => response.json());
+// function to get data for the city input
+const getDataForCity = (city, unit, apiId) =>
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiId}&units=${unit}`
+  ).then((response) => response.json());
 
-  
 const createHtml = (name, status, temp, feelsLike, description) => {
-    const html =
-    `<div class="card">
+  const html = `<div class="card">
   <div class="row align-items-center">    
     <div class="col-2 h2 pl-1 pt-1 text-center">                
       ${status}
@@ -29,59 +29,59 @@ const createHtml = (name, status, temp, feelsLike, description) => {
     </div>
   </div>
 </div>
-`
-return html;
+`;
+  return html;
 };
 // object used to find the right emoji from the icon code sent from the api
 const status = {
-    '01d': '☀️',
-    '02d': '⛅️',
-    '03d': '☁️',
-    '04d': '☁️',
-    '09d': '🌧',
-    '10d': '🌦',
-    '11d': '⛈',
-    '13d': '❄️',
-    '50d': '💨',
-    '01n': '☀️',
-    '02n': '⛅️',
-    '03n': '☁️',
-    '04n': '☁️',
-    '09n': '🌧',
-    '10n': '🌦',
-    '11n': '⛈',
-    '13n': '❄️',
-    '50n': '💨',
-  };
+  "01d": "☀️",
+  "02d": "⛅️",
+  "03d": "☁️",
+  "04d": "☁️",
+  "09d": "🌧",
+  "10d": "🌦",
+  "11d": "⛈",
+  "13d": "❄️",
+  "50d": "💨",
+  "01n": "☀️",
+  "02n": "⛅️",
+  "03n": "☁️",
+  "04n": "☁️",
+  "09n": "🌧",
+  "10n": "🌦",
+  "11n": "⛈",
+  "13n": "❄️",
+  "50n": "💨",
+};
 
-  // getting the input data
-const submit = document.querySelector('#go-button');
-const cityInput = document.querySelector('#city-input');
-const unitInput = document.querySelector('#unit');
-// const keyInput = document.querySelector('#key-input');
-const weatherContainer = document.querySelector('#weather-container');
+// getting the input data
+const submit = document.querySelector("#go-button");
+const cityInput = document.querySelector("#city-input");
+const unitInput = document.querySelector("#unit");
+const keyInput = document.querySelector("#key-input");
+const weatherContainer = document.querySelector("#weather-container");
 
 // event listener for a click event on the "Go!" button
-submit.addEventListener('click', () => {
-    // get the city from the input field
-    const city = cityInput.value;
-    const unit = unitInput.value;
-    // const key = keyInput.value;
+submit.addEventListener("click", () => {
+  // get the city from the input field
+  const city = cityInput.value;
+  const unit = unitInput.value;
+  const key = keyInput.value || apiId;
 
-    // get the weather data for the city
-    getDataForCity(city, unit, key)
-      .then(data => {
-        // get the data we need for our html from the response
-        const name = data.name;
-        const emoji = status[data.weather[0].icon];
-        const temp = data.main.temp;
-        const feelsLike = data.main.feels_like;
-        const description = data.weather[0].description;
-  
-        // create the card html
-        const cardHtml = createHtml(name, emoji, temp, feelsLike, description);
-  
-        // render!
-        weatherContainer.innerHTML = cardHtml;
-      });
+  console.warn([key, keyInput.value.length]);
+  // get the weather data for the city
+  getDataForCity(city, unit, key).then((data) => {
+    // get the data we need for our html from the response
+    const name = data.name;
+    const emoji = status[data.weather[0].icon];
+    const temp = data.main.temp;
+    const feelsLike = data.main.feels_like;
+    const description = data.weather[0].description;
+
+    // create the card html
+    const cardHtml = createHtml(name, emoji, temp, feelsLike, description);
+
+    // render!
+    weatherContainer.innerHTML = cardHtml;
   });
+});

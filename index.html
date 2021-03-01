@@ -1,74 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title></title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
-    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="container">
-        <div class="row mt-5">
-            <div class="col-md-8 col-lg-6">
-                <h5 class="mb-3">Whats the weather today??</h5>
-                <div class="justify-content-center w-50">
-                    <label for="unit"><strong>Select unit of measurement</strong></label>
-                </div>
-                <div class="form-group justify-content-center w-50">
-                    <select class="custom-select" id="unit">
-                        <option>standard</option>
-                        <option>metric</option>
-                        <option>imperial</option>
-                    </select>
-                </div>
-                <div class="input-group mb-3 justify-content-center w-50">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key-fill" viewBox="0 0 16 16">
-                            <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-                          </svg>&nbsp;key</span>
-                    </div>
-                    <input type="text" id="key-input" class="form-control" aria-label="">
-                    <!-- <div class="input-group-append">
+      <div class="row mt-5">
+        <div class="col-md-8 col-lg-6">
+          <h5 class="mb-3">Whats the weather today??</h5>
+          <div class="justify-content-center w-50">
+            <label for="unit"
+              ><strong>Select unit of measurement</strong></label
+            >
+          </div>
+          <div class="form-group justify-content-center w-50">
+            <select class="custom-select" id="unit">
+              <option>standard</option>
+              <option>metric</option>
+              <option>imperial</option>
+            </select>
+          </div>
+          <div class="input-group mb-3 justify-content-center w-50">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-key-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
+                  /></svg
+                >&nbsp;key</span
+              >
+            </div>
+            <input
+              type="text"
+              id="key-input"
+              class="form-control"
+              aria-label=""
+            />
+            <!-- <div class="input-group-append">
                         <button id="go-button" class="btn btn-primary">Go!</button>
                     </div> -->
-                </div>
-                <div class="input-group mb-3 justify-content-center w-50">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                fill="currentColor" class="bi bi-sun" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
-                            </svg>&nbsp;&nbsp;&nbsp; In</span>
-                    </div>
-                    <input type="text" id="city-input" class="form-control" aria-label="">
-                    <div class="input-group-append">
-                        <button id="go-button" class="btn btn-primary">Go!</button>
-                    </div>
-                </div>
-               
+          </div>
+          <div class="input-group mb-3 justify-content-center w-50">
+            <div class="input-group-prepend">
+              <span class="input-group-text"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-sun"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+                  /></svg
+                >&nbsp;&nbsp;&nbsp; In</span
+              >
             </div>
-            <div class="row mt-3 justify-content-center">
-                <div id="weather-container" class="col-md-8 col-lg-6">
-                </div>
+            <input
+              type="text"
+              id="city-input"
+              class="form-control"
+              aria-label=""
+            />
+            <div class="input-group-append">
+              <button id="go-button" class="btn btn-primary">Go!</button>
             </div>
+          </div>
         </div>
+        <div class="row mt-3 justify-content-center">
+          <div id="weather-container" class="col-md-8 col-lg-6"></div>
+        </div>
+      </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-    crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
     <!-- <script defer src="./node_modules"></script> -->
-    <script defer src="index.js"></script>
-</body> 
-
+    <!-- <script defer src="./node_modules/dotenv/config.js"></script> -->
+    <script src="index.js" defer></script>
+  </body>
 </html>
